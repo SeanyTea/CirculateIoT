@@ -1,4 +1,4 @@
-from realsense_segmentation import detect_image
+from realsense_inference import detect_image
 import argparse
 from glob import glob
 import os
@@ -6,7 +6,7 @@ import os
 import time
 import board
 import busio
-import adafruit_mlx90640
+#import adafruit_mlx90640
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime 
@@ -81,7 +81,7 @@ def convert_data(frame):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-w','--weights', type=str, default='yolov5s-fp16.tflite', help='model.tflite path(s)')
+    parser.add_argument('-w','--weights', type=str, default='defaultrealsense_augmented3.tflite', help='model.tflite path(s)')
     parser.add_argument('-s','--save_path', type=str,default = 'False', help='folder path')  
     parser.add_argument('--img_size', type=int, default=416, help='image size') 
     parser.add_argument('--conf_thres', type=float, default=0.25, help='object confidence threshold')
